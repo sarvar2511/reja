@@ -1,40 +1,40 @@
 console.log("Web Serverni boshlash");
-const express = require("express");
-const app = express();
-const http = require("http");
-//express dan app objectini yuboradi, va bu orqali express web server quramiz: 4 bosqichda:
+// const express = require("express");
+// const app = express();
+// const http = require("http");
+// //express dan app objectini yuboradi, va bu orqali express web server quramiz: 4 bosqichda:
 
-//1.Kirish code
-// expreessga kirib kelayotgan  malumotlarga bogliq kodlar yoziladi
-app.use(express.static("public")); //=> Bu har qanday browserdan kirib kelayotgan zaproslar uchun public folder ochiq degani.
-//  Public folderni userlaga ochib beramiz. css styling va imagelar shuni ichida boaldi
-app.use(express.json()); //bu kirib kelayotgan .json formatdagi malumotni object holatiga ogirib beadi
-app.use(express.urlencoded({ extended: true })); // HTML form dan traditional request qilish elementi.
-//  formdan biror nasa post qilsak bu narsa serverga kiritib beradi=>express qabul qiladi
+// //1.Kirish code
+// // expreessga kirib kelayotgan  malumotlarga bogliq kodlar yoziladi
+// app.use(express.static("public")); //=> Bu har qanday browserdan kirib kelayotgan zaproslar uchun public folder ochiq degani.
+// //  Public folderni userlaga ochib beramiz. css styling va imagelar shuni ichida boaldi
+// app.use(express.json()); //bu kirib kelayotgan .json formatdagi malumotni object holatiga ogirib beadi
+// app.use(express.urlencoded({ extended: true })); // HTML form dan traditional request qilish elementi.
+// //  formdan biror nasa post qilsak bu narsa serverga kiritib beradi=>express qabul qiladi
 
-//2. Session codes
+// //2. Session codes
 
-//3. Views codes
-// Backend da HTML yasaymiz.
-app.set("views", "views"); //views folderdan oqiydi
-app.set("view engine", "ejs"); //ejs orqali backend ni ichida front-end ni yasaymiz
+// //3. Views codes
+// // Backend da HTML yasaymiz.
+// app.set("views", "views"); //views folderdan oqiydi
+// app.set("view engine", "ejs"); //ejs orqali backend ni ichida front-end ni yasaymiz
 
-//4.Routing codes
-//  Routerlarga moljallangan.
-app.get("/hello", function (req, res) {
-  // localhost:3000/hello deb google gilsak ochib beradi
-  res.end("<h1 >HELLO MIT by LEO </h1>"); //super string bilan style bersayam boladi htmlga
-});
+// //4.Routing codes
+// //  Routerlarga moljallangan.
+// app.get("/hello", function (req, res) {
+//   // localhost:3000/hello deb google gilsak ochib beradi
+//   res.end("<h1 >HELLO MIT by LEO </h1>"); //super string bilan style bersayam boladi htmlga
+// });
 
-app.get("/gift", function (req, res) {
-  res.end("<h1 > Siz sovgalar bolimidasiz </h1>"); // localhost:3000/gift deb google gilsak ochib beradi
-});
+// app.get("/gift", function (req, res) {
+//   res.end("<h1 > Siz sovgalar bolimidasiz </h1>"); // localhost:3000/gift deb google gilsak ochib beradi
+// });
 
-const server = http.createServer(app);
-let PORT = 3000;
-server.listen(PORT, function () {
-  console.log(`The server is running succesfully on port: ${PORT}`);
-}); // serverga yukladik
+// const server = http.createServer(app);
+// let PORT = 3000;
+// server.listen(PORT, function () {
+//   console.log(`The server is running succesfully on port: ${PORT}`);
+// }); // serverga yukladik
 
 // express framework orqali web server ni qurib oldik
 /* 
@@ -45,3 +45,36 @@ loyihani boshqa qurulmada ham korinishi uchun guthub dan foydalanamiz
 git branch=> develop => da ishlab keyin masterga merge qilinadi.
 git branch=> master da qilamiz hozircha
 */
+
+const express = require("express");
+const app = express();
+const http = require("http");
+
+//1.Kirish code
+app.use(express.static("public"));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true })); // shu kod borligi uchun ejs dagi actionni qabul qiladi
+
+//2. Session codes
+//3. Views codes
+app.set("views", "views");
+app.set("view engine", "ejs");
+
+//4.Routing codes
+app.post("/create-item", (req, res) => {
+  console.log("POST kelib tushdi");
+  console.log(req.body); //bodyda kormoqchiman
+  //   console.log(req);
+  res.json({ test: "succes" }); // va json shaklida malumotni qabul qilmoqchiman
+});
+app.get("/", function (req, res) {
+  res.render("harid"); // renderga fayl nomi yoziladi. views 2-qadamda korsatib beramiz.
+});
+
+const server = http.createServer(app);
+let PORT = 3000;
+server.listen(PORT, function () {
+  console.log(`The server is running succesfully on port: ${PORT}`);
+});
+// GET- data basedan malumot olish uchun ishlaydi
+//POST esa malumotni ozi bn olib keladi va data basge usha malumotni yozadi
