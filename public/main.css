@@ -588,8 +588,37 @@
   background: rgb(240, 240, 246);
 }
 
+.main_frame .right_frame .menu_boxes .menu_box .direction {
+  visibility: hidden;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 8px 16px;
+  border-radius: 5px;
+  position: absolute;
+  bottom: 110%;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.main_frame .right_frame .menu_boxes .menu_box .direction::after {
+  content: "";
+  position: absolute;
+  top: 90%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 10px;
+  border-style: solid;
+  border-color: #333 transparent transparent transparent;
+}
+
+.main_frame .right_frame .menu_boxes .menu_box:hover .direction {
+  visibility: visible;
+}
+
 .main_frame .right_frame .menu_boxes .menu_box:hover {
   background: rgb(255, 180, 0);
-  transform: scale(1.2);
-  transition: transform 0.5s ease-in-out, opacity 1s ease-in-out;
 }
