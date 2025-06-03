@@ -49,28 +49,39 @@ git branch=> master da qilamiz hozircha
 const express = require("express");
 const app = express();
 const http = require("http");
-
+const fs = require("fs");
+let user;
+fs.readFile("database/user.json", "utf8", (err, data) => {
+  if (err) {
+    console.log("ERROR:", err);
+  } else {
+    user = JSON.parse(data);
+  }
+});
 //1.Kirish code
-app.use(express.static("public"));
-app.use(express.json());
-app.use(express.urlencoded({ extended: true })); // shu kod borligi uchun ejs dagi actionni qabul qiladi
+app.use(express.static("public")); //MiddleWare Desing Pattern => Public folder tashqi olamga ochiqlaymiz
+app.use(express.json()); //MiddleWare Desing Pattern => Rest api hizmati
+app.use(express.urlencoded({ extended: true })); //MiddleWare Desing Pattern =>Traditional api hizmati
+// shu kod borligi uchun ejs dagi actionni qabul qiladi
 
 //2. Session codes
 //3. Views codes
 app.set("views", "views");
-app.set("view engine", "ejs");
+app.set("view engine", "ejs"); // ejs backendda front end ni qurib berayapti
 
 //4.Routing codes
 app.post("/create-item", (req, res) => {
-  console.log("POST kelib tushdi");
-  console.log(req.body); //bodyda kormoqchiman
+  // console.log(req.body); //bodyda kormoqchiman
   //   console.log(req);
   res.json({ test: "succes" }); // va json shaklida malumotni qabul qilmoqchiman
 });
 app.get("/", function (req, res) {
   res.render("harid"); // renderga fayl nomi yoziladi. views 2-qadamda korsatib beramiz.
+  //back end da front end ishga tushayapti
 });
-
+app.get("/author", (req, res) => {
+  res.render("author", { user: user }); //serverda link belgilaymiz
+});
 const server = http.createServer(app);
 let PORT = 3000;
 server.listen(PORT, function () {
