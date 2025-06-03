@@ -76,7 +76,7 @@
               <strong>Languages</strong>
               <div class="langs">
                 <div class="lan">
-                  <div>Bangla</div>
+                  <div><%=user.languages[0]%></div>
                   <p>100%</p>
                 </div>
                 <div class="percent">
@@ -85,7 +85,7 @@
               </div>
               <div class="langs">
                 <div class="lan">
-                  <div>English</div>
+                  <div><%=user.languages[1]%></div>
                   <p>80%</p>
                 </div>
                 <div class="percent">
@@ -94,7 +94,7 @@
               </div>
               <div class="langs">
                 <div class="lan">
-                  <div>Spanish</div>
+                  <div><%=user.languages[2]%></div>
                   <p>60%</p>
                 </div>
                 <div class="percent">
@@ -107,7 +107,7 @@
               <strong>Skills</strong>
               <div class="langs">
                 <div class="lan">
-                  <div>HTML</div>
+                  <div><%=user.skills[0]%></div>
                   <p>90%</p>
                 </div>
                 <div class="percent">
@@ -116,7 +116,7 @@
               </div>
               <div class="langs">
                 <div class="lan">
-                  <div>CSS</div>
+                  <div><%=user.skills[1]%></div>
                   <p>85%</p>
                 </div>
                 <div class="percent">
@@ -125,7 +125,7 @@
               </div>
               <div class="langs">
                 <div class="lan">
-                  <div>Js</div>
+                  <div><%=user.skills[2]%></div>
                   <p>80%</p>
                 </div>
                 <div class="percent">
@@ -134,7 +134,7 @@
               </div>
               <div class="langs">
                 <div class="lan">
-                  <div>PHP</div>
+                  <div><%=user.skills[3]%></div>
                   <p>75%</p>
                 </div>
                 <div class="percent">
@@ -143,7 +143,7 @@
               </div>
               <div class="langs">
                 <div class="lan">
-                  <div>WordPress</div>
+                  <div><%=user.skills[4]%></div>
                   <p>85%</p>
                 </div>
                 <div class="percent">
@@ -157,19 +157,23 @@
               <strong>Extra Skills</strong>
               <div class="skill">
                 <img src="/author/icon/Icons.svg" alt="" />
-                <p>Bootstrap, Materialize</p>
+                <p><%=user.extra_skills[0]%></p>
               </div>
               <div class="skill">
                 <img src="/author/icon/Icons.svg" alt="" />
-                <p>Styling, Sass, Less</p>
+                <p><%=user.extra_skills[1]%></p>
               </div>
               <div class="skill">
                 <img src="/author/icon/Icons.svg" alt="" />
-                <p>Django, Flask</p>
+                <p><%=user.extra_skills[2]%></p>
               </div>
               <div class="skill">
                 <img src="/author/icon/Icons.svg" alt="" />
-                <p>GIT Knowledge</p>
+                <p><%=user.extra_skills[3]%></p>
+              </div>
+              <div class="skill">
+                <img src="/author/icon/Icons.svg" alt="" />
+                <p><%=user.extra_skills[4]%></p>
               </div>
             </div>
             <div class="margener"></div>
