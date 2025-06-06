@@ -10,11 +10,15 @@ Masalan: countLetter("e", "engineer")
 3 sonini qaytaradi
 */
 
-const countLetter = (a, soz) =>
-  soz.split("").filter((harf) => harf === a).length;
+function countLetter(harf, soz) {
+  const result = soz.split("");
+  const lastResult = result.filter((i) => i === harf);
+  console.log(
+    `${soz} ning ichida ${harf} dan ${lastResult.length}ta miqdorda bor`
+  );
+}
 
-const natija = countLetter("a", "Sarvarbek");
-console.log(natija);
+countLetter("a", "Sarvarbek");
 
 //21. NodeJS event loop va Callback functionlarni o'rganamiz
 const list = [
