@@ -1,4 +1,35 @@
 console.log("TRAIN AREA");
+/*B-TASK
+
+Shunday function tuzing, u 1ta string parametrga ega bolsin, hamda osha stringda qatnashgan raqamlarni sonini bizga return qilsin.
+MASALAN countDigits("ad2a54y79wet0sfgb9") 7ni return qiladi.
+ */
+//First version
+function countDigits(numberQuantity) {
+  let count = 0;
+
+  for (let i of numberQuantity) {
+    if (i >= "0" && i <= "9") {
+      count++;
+    }
+  }
+
+  return count;
+}
+const count = countDigits("ad2a54y79wet0sfgb9");
+console.log(count);
+
+//Second version
+function sort(text) {
+  const result = text.split("");
+  // console.log(result);
+  const lastResult = result.filter((ele) => {
+    return ele >= 0 && ele !== " ";
+  });
+  console.log(lastResult.length);
+}
+sort("ad2 a54f0       y79  w");
+
 /*TASK A
 
 Harf sifatida kiritilgan birinchi parametr, 
