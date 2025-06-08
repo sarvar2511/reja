@@ -69,6 +69,7 @@ const list = [
 
 //22. Asychroous function
 {
+  /*
   async function maslahatByJack(a) {
     if (typeof a !== "number") throw new Error("insert a number");
     else if (a <= 20) return list[0];
@@ -85,13 +86,13 @@ const list = [
     } /*Promise function ni ishlatsak, SetTimeout ni ishlatsak boladi, bunda await bilan call qilinganda
   avval promise call qilingan function ishga tushadi, qolgan functionlar kutib turadi
     */
-  }
+  //}
   //calling by then().catch()
   /*
 synchronous functionlar ishga tushganidan keyin asychronous functionlar ishga tushishni boshlaydi
 shunign uchun ham asychronous funtion single thread ni band qilmaydi
 */
-  console.log("Passed here 0");
+  /*console.log("Passed here 0");
   maslahatByJack(25)
     .then((data) => {
       console.log("Jack says:", data);
@@ -102,8 +103,7 @@ shunign uchun ham asychronous funtion single thread ni band qilmaydi
   console.log("Passed here 1");
   /*Avval [1]ni keyin [2]ni... besin desak bir async yasab olamiz, kak maydoncha vazifasini bajaradi */
   //async/await
-
-  async function run() {
+  /*async function run() {
     let javob = await maslahatByJack(20);
     console.log(javob);
     javob = await maslahatByJack(65);
@@ -126,3 +126,4 @@ shunign uchun ham asychronous funtion single thread ni band qilmaydi
 
  MongoDB ning database clienti MongoDB compass
  */
+}
