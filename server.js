@@ -102,7 +102,7 @@ const mongodb = require("mongodb");
 
 let db;
 const connectionString =
-  "mongodb+srv://sarvar2511:d3zmLMbURQZLBHnJ@cluster0.cpy8hmv.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0/Reja";
+  "mongodb+srv://sarvar2511:d3zmLMbURQZLBHnJ@cluster0.cpy8hmv.mongodb.net/Reja?retryWrites=true&w=majority&appName=Cluster0";
 
 mongodb.connect(
   connectionString,

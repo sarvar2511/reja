@@ -127,3 +127,5 @@ shunign uchun ham asychronous funtion single thread ni band qilmaydi
  MongoDB ning database clienti MongoDB compass
  */
 }
+
+//CRUD => Create Read Update Delete
