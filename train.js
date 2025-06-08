@@ -8,16 +8,16 @@ Funktsiya tuzing
 Masalan: countLetter("e", "engineer")
 'engineer' so'zi tarkibida 'e' harfi 3 marotaba takrorlanganligi uchun
 3 sonini qaytaradi
-*/
 
-// function countLetter(harf, soz) {
-//   const result = soz.split("");
-//   const lastResult = result.filter((i) => i === harf);
-//   console.log(
-//     `${soz} ning ichida ${harf} dan ${lastResult.length}ta miqdorda bor`
-//   );
-// }
-// countLetter("a", "Sarvarbek");
+function countLetter(harf, soz) {
+  const result = soz.split("");
+  const lastResult = result.filter((i) => i === harf);
+  console.log(
+    `${soz} ning ichida ${harf} dan ${lastResult.length}ta miqdorda bor`
+  );
+}
+countLetter("a", "Sarvarbek");
+*/
 
 //21. NodeJS event loop va Callback functionlarni o'rganamiz
 const list = [
@@ -113,3 +113,16 @@ shunign uchun ham asychronous funtion single thread ni band qilmaydi
   }
   run();
 }
+//23. MongoDB password:    d3zmLMbURQZLBHnJ
+/**
+ Cloud databasedan foydalanamiz. Mongodb atlasdan foydalanamiz,
+ lyihani qayerda run qilinsa ishlashi kerak. Local mashinaga instal qiladigan bolsam
+ kompyuterimdan oshqa joyda ishlata olmayman
+
+ MongoDB da cluster deyiladi. 
+ ichidagi birlik database deyiladi
+ database ichidagi birlik collection deyiladi
+ collection ichidagi birlik document lardan iborat
+
+ MongoDB ning database clienti MongoDB compass
+ */
