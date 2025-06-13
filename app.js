@@ -13,11 +13,8 @@ fs.readFile("database/user.json", "utf8", (err, data) => {
   }
 });
 
-//MongoDB chaqiramish
-const db = require("./server").db();
-/*ushbu ozgaruvchi mongodb instanceni qolga olib beradi
-bu orqali databasega turli malumotlarni
-yozish/ochirish/oqish... */
+//MongoDB chaqiramiz
+const db = require("./server").db(); //...CRUD
 //1.Kirish code
 app.use(express.static("public"));
 app.use(express.json());
@@ -30,9 +27,10 @@ app.set("view engine", "ejs");
 
 //4.Routing codes
 app.post("/create-item", (req, res) => {
-  console.log("user entered /create-item");
+  console.log("STEP-2: FrontEnd da backendga keldi");
   console.log(req.body);
   const new_reja = req.body.reja;
+  console.log("STEP-3: BACKEND => DATABASE ");
   db.collection("plans").insertOne({ reja: new_reja }, (err, data) => {
     if (err) {
       console.log(err);
@@ -43,15 +41,22 @@ app.post("/create-item", (req, res) => {
   });
 });
 app.get("/", function (req, res) {
-  console.log("user entered /");
-  db.collection("plans")
-    .find()
+  console.log("STEP-1: BACKENDga kirish");
+
+  console.log("STEP-2: BACKEND => DATABASE"); //backenddan databasega borib yana qaytib keladi
+
+  db.collection("plans") //plans degan collectionni ushla
+    .find() // unidagi hamma malumotlarni ol
     .toArray((err, data) => {
+      console.log("STEP-3: DATABASE => BACKEND");
+      console.log(data);
+      // va shu malumotlarni array ga otkaz
+
+      console.log("STEP-3: BACKEND HTML => FRONTEND");
       if (err) {
         console.log(err);
         res.end("something went wrong");
       } else {
-        // console.log(data);
         res.render("reja", { items: data });
       }
     });

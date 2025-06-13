@@ -52,7 +52,7 @@ app.use(express.json()); //REST-API ga kirish imkonini beradi=>
 // frontend kelyotgan json fayl datalarini objectga aylantirib beradi
 //json formatdagi datani serverga kiritib beradi
 app.use(express.urlencoded({ extended: true })); //Traditional API ni qabul qilish uchun hizmat qiladi=>
-//nested objectlar kelsa qabul qil degan kod
+//nested objectlar kelsa qabul qil degan kod.=> Formdagi malumotlarni qabul qilish
 
 //2. Session codes => Authentication=>Log in/Sing up jarayonlari
 
