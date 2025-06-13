@@ -27,32 +27,35 @@ app.set("view engine", "ejs");
 
 //4.Routing codes
 app.post("/create-item", (req, res) => {
-  console.log("STEP-2: FrontEnd da backendga keldi");
+  // console.log("STEP-2: FrontEnd da backendga keldi");
   console.log(req.body);
   const new_reja = req.body.reja;
-  console.log("STEP-3: BACKEND => DATABASE ");
+  // console.log("STEP-3: BACKEND => DATABASE ");
   db.collection("plans").insertOne({ reja: new_reja }, (err, data) => {
-    if (err) {
-      console.log(err);
-      res.end("something went wrong");
-    } else {
-      res.end("succesfully added");
-    }
+    // if (err) {
+    //   console.log(err);
+    //   res.end("something went wrong");
+    // } else {
+    //   res.end("succesfully added");
+    // } Bu Traditional request uchun post
+    //Endi modern post uchun yozamiz
+    console.log(data.ops);
+    res.json(data.ops[0]);
   });
 });
 app.get("/", function (req, res) {
-  console.log("STEP-1: BACKENDga kirish");
+  // console.log("STEP-1: BACKENDga kirish");
 
-  console.log("STEP-2: BACKEND => DATABASE"); //backenddan databasega borib yana qaytib keladi
+  // console.log("STEP-2: BACKEND => DATABASE"); //backenddan databasega borib yana qaytib keladi
 
   db.collection("plans") //plans degan collectionni ushla
     .find() // unidagi hamma malumotlarni ol
     .toArray((err, data) => {
-      console.log("STEP-3: DATABASE => BACKEND");
+      // console.log("STEP-3: DATABASE => BACKEND");
       console.log(data);
       // va shu malumotlarni array ga otkaz
 
-      console.log("STEP-3: BACKEND HTML => FRONTEND");
+      // console.log("STEP-3: BACKEND HTML => FRONTEND");
       if (err) {
         console.log(err);
         res.end("something went wrong");
