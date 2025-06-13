@@ -3,6 +3,8 @@ const express = require("express");
 const res = require("express/lib/response");
 const app = express();
 const fs = require("fs");
+//CRUD ishlashi uchun Mongodb ni require qilib olamiz
+const mongodb = require("mongodb");
 
 let user;
 fs.readFile("database/user.json", "utf8", (err, data) => {
@@ -32,17 +34,31 @@ app.post("/create-item", (req, res) => {
   const new_reja = req.body.reja;
   // console.log("STEP-3: BACKEND => DATABASE ");
   db.collection("plans").insertOne({ reja: new_reja }, (err, data) => {
-    // if (err) {
+    /* if (err) {
     //   console.log(err);
     //   res.end("something went wrong");
     // } else {
     //   res.end("succesfully added");
     // } Bu Traditional request uchun post
+    */
     //Endi modern post uchun yozamiz
-    console.log(data.ops);
+    // console.log(data.ops);
     res.json(data.ops[0]);
   });
 });
+
+app.post("/delete-item", (req, res) => {
+  const id = req.body.id;
+  console.log(id);
+  //db ga kirib malumoni ochirish =>
+  db.collection("plans").deleteOne(
+    { _id: new mongodb.ObjectId(id) },
+    function (err, data) {
+      res.json({ state: "success" });
+    }
+  );
+});
+
 app.get("/", function (req, res) {
   // console.log("STEP-1: BACKENDga kirish");
 
