@@ -77,10 +77,9 @@ app.get("/", function (req, res) {
   db.collection("plans") //plans degan collectionni ushla
     .find() // unidagi hamma malumotlarni ol
     .toArray((err, data) => {
+      // va shu malumotlarni array ga otkaz
       // console.log("STEP-3: DATABASE => BACKEND");
       console.log(data);
-      // va shu malumotlarni array ga otkaz
-
       // console.log("STEP-3: BACKEND HTML => FRONTEND");
       if (err) {
         console.log(err);

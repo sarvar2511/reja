@@ -1,6 +1,25 @@
 console.log("TRAIN AREA");
-/*
-TASK-C
+const moment = require("moment");
+/* TASK-D
+
+Ikkita parametra ega function tuzing, va functioning
+berilgan birinchi va ikkinchi parametr qiymatlari o'zaro to'liq
+mos kelsa true qiymat qaytarsin
+
+Masalan: checkContent("mitgroup", "gmtiprou");
+Yuqoridagi misolda birinchi va ikkinchi parametr qiymatli bir xil
+ya'ni bir xil harflar qatnashganligi uchun true qiymat qaytaradi.
+ */
+
+function checkContent(text1, text2) {
+  const result1 = text1.split("").sort().toString();
+  const result2 = text2.split("").sort().toString();
+  return result1 === result2;
+}
+const total = checkContent("mitgroup", "gmtiprou");
+console.log(total);
+
+/*TASK-C
 
 Shop nomli class tuzing, va bu class 3 xill parametr qabul qilsin.
 Hamda classning quyidagdek 3'ta metodi bo'lsin:
@@ -20,7 +39,7 @@ natija qaytishi kerak: Hozir 20: 40'da 4'ta non, 5'ta lag'mon va 2'ta cola mavju
 shop.sotish("non", 3); & shop.qabul("cola", 4); & shop.qoldiq();
 Natija qaytishi kerak: Hozir 20:50da 1ta non, 5ta lag'mon va 6ta cola mavjud!
 */
-const moment = require("moment");
+/*Task - C
 class Shop {
   constructor(non, lagmon, cola) {
     this.non = non;
@@ -62,7 +81,7 @@ shop.qoldiq();
 shop.sotish("non", 3);
 shop.qabul("cola", 4);
 shop.qoldiq();
-
+*/
 /*B-TASK
 
 Shunday function tuzing, u 1ta string parametrga ega bolsin, hamda osha stringda qatnashgan raqamlarni sonini bizga return qilsin.
@@ -324,5 +343,3 @@ MongoDB 3 ta narsa qabul qiladi:
 );
 */
 }
-
-//CRUD => Create Read Update Delete
