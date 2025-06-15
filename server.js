@@ -97,13 +97,14 @@ server.listen(PORT, function () {
 });
 */
 
-const http = require("http");
-const mongodb = require("mongodb");
+const http = require("http"); //=> object
+const mongodb = require("mongodb"); //=> object
 
 let db;
 const connectionString =
   "mongodb+srv://sarvar2511:d3zmLMbURQZLBHnJ@cluster0.cpy8hmv.mongodb.net/Reja?retryWrites=true&w=majority&appName=Cluster0";
-
+//=> object methodini CALL qilamiz pasda
+// vazifasi TCP qurish yani Backend server bilan Database serverni uzviy  boglash
 mongodb.connect(
   connectionString,
   {
@@ -114,7 +115,7 @@ mongodb.connect(
     if (err) console.log("ERROR on connection MongoDB");
     else {
       console.log("MongoDB connection succeed");
-      module.exports = client;
+      module.exports = client; //client.db() => db qalam appga jonatamiz
       //console.log(client);// database connection object
       const app = require("./app");
       const server = http.createServer(app);

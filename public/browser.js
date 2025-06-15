@@ -2,7 +2,7 @@ console.log("FrontEnd JS ishga tushdi");
 
 function itemTemplate(item) {
   return `
-    <li
+    <li style="background: orange"
           class="list-group-item list-group-item-info d-flex align-items-center justify-content-between">
           <span class="item-text">${item.reja}</span>
           <div>
@@ -24,11 +24,16 @@ function itemTemplate(item) {
 let createField = document.getElementById("create-field");
 
 document.getElementById("create-form").addEventListener("submit", function (e) {
-  e.preventDefault();
+  e.preventDefault(); //STOP: Traditional API
 
-  axios
+  //REST API nin ishga tushunarmiz
+  // console.log("STEP-1: FRONTEND => BACKEND Rest API yuboriladi form buttoni bosilganda");
+  axios //htmlga linkini qoyib chaqirib olganmiz
+    //axios bu FRONTEND => BACKEND ga Rest API yuboradigan object
     .post("/create-item", { reja: createField.value })
+    //post(header, {body} => API request structure )
     .then((response) => {
+      //   console.log("STEP-6: BACKEND => FRONTENDga data kiradi ");
       document
         .getElementById("item-list")
         .insertAdjacentHTML("beforeend", itemTemplate(response.data));
@@ -48,10 +53,12 @@ document.addEventListener("click", function (e) {
   //DELETE operation
   if (e.target.classList.contains("delete-me")) {
     if (confirm("Aniq ochirasizmi"));
+    // console.log("STEP-1: FRONTEND => BACKEND Rest API yuboriladi");
     {
       axios
         .post("/delete-item", { id: e.target.getAttribute("data-id") })
         .then((response) => {
+          //   console.log("STEP-6: BACKEND => FRONTENDga data kiradi ");
           console.log(response.data);
           e.target.parentElement.parentElement.remove();
         })
@@ -61,7 +68,7 @@ document.addEventListener("click", function (e) {
     }
   }
 
-  //EDIT operation
+  //UPDATE operation
   if (e.target.classList.contains("edit-me")) {
     alert("Siz edit tugmasini bosdingiz");
   }
