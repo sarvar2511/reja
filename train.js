@@ -1,5 +1,17 @@
 console.log("TRAIN AREA");
 const moment = require("moment");
+
+/*
+E-TASK: 
+
+Shunday function tuzing, u bitta string argumentni qabul qilib osha stringni teskari qilib return qilsin.
+MASALAN: getReverse("hello") return qilsin "olleh"*/
+
+function getReverse(a) {
+  console.log(a.split("").reverse().join(""));
+}
+getReverse("Hello Sarvar");
+
 /* TASK-D
 
 Ikkita parametra ega function tuzing, va functioning
@@ -9,7 +21,7 @@ mos kelsa true qiymat qaytarsin
 Masalan: checkContent("mitgroup", "gmtiprou");
 Yuqoridagi misolda birinchi va ikkinchi parametr qiymatli bir xil
 ya'ni bir xil harflar qatnashganligi uchun true qiymat qaytaradi.
- */
+ 
 
 function checkContent(text1, text2) {
   const result1 = text1.split("").sort().toString();
@@ -18,6 +30,7 @@ function checkContent(text1, text2) {
 }
 const total = checkContent("mitgroup", "gmtiprou");
 console.log(total);
+*/
 
 /*TASK-C
 
