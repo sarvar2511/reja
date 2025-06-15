@@ -75,7 +75,7 @@ document.addEventListener("click", function (e) {
     );
     if (userInput) {
       axios
-        .post("edit-item", {
+        .post("/edit-item", {
           id: e.target.getAttribute("data-id"),
           new_input: userInput,
         })
