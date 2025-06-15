@@ -52,9 +52,8 @@ document.addEventListener("click", function (e) {
   //   console.log(e);
   //DELETE operation
   if (e.target.classList.contains("delete-me")) {
-    if (confirm("Aniq ochirasizmi"));
-    // console.log("STEP-1: FRONTEND => BACKEND Rest API yuboriladi");
-    {
+    if (confirm("Aniq ochirasizmi")) {
+      // console.log("STEP-1: FRONTEND => BACKEND Rest API yuboriladi");
       axios
         .post("/delete-item", { id: e.target.getAttribute("data-id") })
         .then((response) => {
