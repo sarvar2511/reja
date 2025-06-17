@@ -122,7 +122,7 @@ console.log("Passed B");
 
 const server = http.createServer(app);
 //http objectini .createServer methodiga argument sifatida app ni pass qilsak bizga backend serverni qurib beradi
-let PORT = 3000;
+let PORT = 4011;
 //serverni olib listen qiladigan bolsak server port larimiz ishga tushayapti
 server.listen(PORT, function () {
   console.log(`The server is running succesfully on port: ${PORT}`);
