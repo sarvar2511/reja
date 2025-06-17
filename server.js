@@ -1,3 +1,35 @@
+const http = require("http"); //=> object
+const mongodb = require("mongodb"); //=> object
+
+let db;
+const connectionString =
+  "mongodb+srv://sarvar2511:d3zmLMbURQZLBHnJ@cluster0.cpy8hmv.mongodb.net/Reja?retryWrites=true&w=majority&appName=Cluster0";
+//=> object methodini CALL qilamiz pasda
+// vazifasi TCP qurish yani Backend server bilan Database serverni uzviy  boglash
+mongodb.connect(
+  connectionString,
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  },
+  (err, client) => {
+    if (err) console.log("ERROR on connection MongoDB");
+    else {
+      console.log("MongoDB connection succeed");
+      module.exports = client; //client.db() => db qalam appga jonatamiz
+      //console.log(client);// database connection object
+      const app = require("./app");
+      const server = http.createServer(app);
+      let PORT = 4010;
+      server.listen(PORT, function () {
+        console.log(
+          `The server is running succesfully on port: ${PORT}, http://localhost:${PORT}`
+        );
+      });
+    }
+  }
+);
+
 /*const express = require("express");
 //express package node.js da backend serverni qurishda yodam beradi
 const app = express();
@@ -96,35 +128,3 @@ server.listen(PORT, function () {
   console.log(`The server is running succesfully on port: ${PORT}`);
 });
 */
-
-const http = require("http"); //=> object
-const mongodb = require("mongodb"); //=> object
-
-let db;
-const connectionString =
-  "mongodb+srv://sarvar2511:d3zmLMbURQZLBHnJ@cluster0.cpy8hmv.mongodb.net/Reja?retryWrites=true&w=majority&appName=Cluster0";
-//=> object methodini CALL qilamiz pasda
-// vazifasi TCP qurish yani Backend server bilan Database serverni uzviy  boglash
-mongodb.connect(
-  connectionString,
-  {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  },
-  (err, client) => {
-    if (err) console.log("ERROR on connection MongoDB");
-    else {
-      console.log("MongoDB connection succeed");
-      module.exports = client; //client.db() => db qalam appga jonatamiz
-      //console.log(client);// database connection object
-      const app = require("./app");
-      const server = http.createServer(app);
-      let PORT = 3000;
-      server.listen(PORT, function () {
-        console.log(
-          `The server is running succesfully on port: ${PORT}, http://localhost:${PORT}`
-        );
-      });
-    }
-  }
-);
