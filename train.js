@@ -1,17 +1,35 @@
 console.log("TRAIN AREA");
 const moment = require("moment");
 
-/*
-E-TASK: 
+/*TASK F
+
+Yagona string argumentga ega findDoublers nomli function tuzing
+Agar stringda bittadan ortiq bir xil harflar ishtirok etgan bo'lsa
+true yokida false natija qaytarsin.
+
+MASALAN: findDoublers("hello"); natija true qaytadi. Sababi ikki marotaba takrorlangan 'll' harfi mavjud!
+*/
+function findDoublers(doubles) {
+  const natija = [];
+  doubles.split("").forEach((harf, i) => {
+    if (doubles.indexOf(harf) !== i && !natija.includes(harf)) {
+      natija.push(harf);
+    }
+  });
+  console.log(natija.length > 0);
+}
+findDoublers("hello");
+
+/*E-TASK: 
 
 Shunday function tuzing, u bitta string argumentni qabul qilib osha stringni teskari qilib return qilsin.
-MASALAN: getReverse("hello") return qilsin "olleh"*/
+MASALAN: getReverse("hello") return qilsin "olleh"
 
 function getReverse(a) {
   console.log(a.split("").reverse().join(""));
 }
 getReverse("Hello Sarvar");
-
+*/
 /* TASK-D
 
 Ikkita parametra ega function tuzing, va functioning
@@ -31,7 +49,6 @@ function checkContent(text1, text2) {
 const total = checkContent("mitgroup", "gmtiprou");
 console.log(total);
 */
-
 /*TASK-C
 
 Shop nomli class tuzing, va bu class 3 xill parametr qabul qilsin.
